@@ -482,8 +482,8 @@ export namespace PartitionConnections {
 }
 
 export class PartitionConnectionInfo extends jspb.Message {
-  getIsBlocked(): boolean;
-  setIsBlocked(value: boolean): void;
+  getPacketLossPercentage(): number;
+  setPacketLossPercentage(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PartitionConnectionInfo.AsObject;
@@ -497,7 +497,7 @@ export class PartitionConnectionInfo extends jspb.Message {
 
 export namespace PartitionConnectionInfo {
   export type AsObject = {
-    isBlocked: boolean,
+    packetLossPercentage: number,
   }
 }
 
