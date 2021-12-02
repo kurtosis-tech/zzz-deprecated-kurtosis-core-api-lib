@@ -8,6 +8,16 @@ import (
 // add them so that our code is safer
 
 // ==============================================================================================
+//                           Shared Objects (Used By Multiple Endpoints)
+// ==============================================================================================
+func NewPort(number uint32, protocol kurtosis_core_rpc_api_bindings.Port_Protocol) *kurtosis_core_rpc_api_bindings.Port {
+	return &kurtosis_core_rpc_api_bindings.Port{
+		Number:   number,
+		Protocol: protocol,
+	}
+}
+
+// ==============================================================================================
 //                                     Load Module
 // ==============================================================================================
 func NewLoadModuleArgs(moduleId string, containerImage string, serializedParams string) *kurtosis_core_rpc_api_bindings.LoadModuleArgs {
@@ -15,6 +25,20 @@ func NewLoadModuleArgs(moduleId string, containerImage string, serializedParams 
 		ModuleId:         moduleId,
 		ContainerImage:   containerImage,
 		SerializedParams: serializedParams,
+	}
+}
+
+func NewLoadModuleResponse(
+	privateIpAddr string,
+	privatePort *kurtosis_core_rpc_api_bindings.Port,
+	publicIpAddr string,
+	publicPort *kurtosis_core_rpc_api_bindings.Port,
+) *kurtosis_core_rpc_api_bindings.LoadModuleResponse {
+	return &kurtosis_core_rpc_api_bindings.LoadModuleResponse{
+		PrivateIpAddr: privateIpAddr,
+		PrivatePort:   privatePort,
+		PublicIpAddr:  publicIpAddr,
+		PublicPort:    publicPort,
 	}
 }
 
@@ -52,9 +76,17 @@ func NewGetModuleInfoArgs(moduleId string) *kurtosis_core_rpc_api_bindings.GetMo
 	}
 }
 
-func NewGetModuleInfoResponse(ipAddr string) *kurtosis_core_rpc_api_bindings.GetModuleInfoResponse {
+func NewGetModuleInfoResponse(
+	privateIpAddr string,
+	privatePort *kurtosis_core_rpc_api_bindings.Port,
+	publicIpAddr string,
+	publicPort *kurtosis_core_rpc_api_bindings.Port,
+) *kurtosis_core_rpc_api_bindings.GetModuleInfoResponse {
 	return &kurtosis_core_rpc_api_bindings.GetModuleInfoResponse{
-		IpAddr: ipAddr,
+		PrivateIpAddr: privateIpAddr,
+		PrivatePort:   privatePort,
+		PublicIpAddr:  publicIpAddr,
+		PublicPort:    publicPort,
 	}
 }
 
@@ -77,9 +109,9 @@ func NewRegisterServiceArgs(serviceId string, partitionId string) *kurtosis_core
 	}
 }
 
-func NewRegisterServiceResponse(ipAddr string, relativeServiceDirpath string) *kurtosis_core_rpc_api_bindings.RegisterServiceResponse {
+func NewRegisterServiceResponse(privateIpAddr string, relativeServiceDirpath string) *kurtosis_core_rpc_api_bindings.RegisterServiceResponse {
 	return &kurtosis_core_rpc_api_bindings.RegisterServiceResponse{
-		IpAddr:                 ipAddr,
+		PrivateIpAddr:          privateIpAddr,
 		RelativeServiceDirpath: relativeServiceDirpath,
 	}
 }
@@ -90,7 +122,7 @@ func NewRegisterServiceResponse(ipAddr string, relativeServiceDirpath string) *k
 func NewStartServiceArgs(
 		serviceId string,
 		image string,
-		usedPorts map[string]bool,
+		privatePorts map[string]*kurtosis_core_rpc_api_bindings.Port,
 		entrypointArgs []string,
 		cmdArgs []string,
 		envVars map[string]string,
@@ -99,7 +131,7 @@ func NewStartServiceArgs(
 	return &kurtosis_core_rpc_api_bindings.StartServiceArgs{
 		ServiceId:                  serviceId,
 		DockerImage:                image,
-		UsedPorts:                  usedPorts,
+		PrivatePorts:                  privatePorts,
 		EntrypointArgs:             entrypointArgs,
 		CmdArgs:                    cmdArgs,
 		DockerEnvVars:              envVars,
@@ -108,16 +140,10 @@ func NewStartServiceArgs(
 	}
 }
 
-func NewStartServiceResponse(usedPortsHostPortBindings map[string]*kurtosis_core_rpc_api_bindings.PortBinding) *kurtosis_core_rpc_api_bindings.StartServiceResponse {
+func NewStartServiceResponse(publicIpAddr string, publicPorts map[string]*kurtosis_core_rpc_api_bindings.Port) *kurtosis_core_rpc_api_bindings.StartServiceResponse {
 	return &kurtosis_core_rpc_api_bindings.StartServiceResponse{
-		UsedPortsHostPortBindings: usedPortsHostPortBindings,
-	}
-}
-
-func NewPortBinding(interfaceIp string, interfacePort string) *kurtosis_core_rpc_api_bindings.PortBinding {
-	return &kurtosis_core_rpc_api_bindings.PortBinding{
-		InterfaceIp:   interfaceIp,
-		InterfacePort: interfacePort,
+		PublicIpAddr: publicIpAddr,
+		PublicPorts:  publicPorts,
 	}
 }
 
@@ -130,9 +156,19 @@ func NewGetServiceInfoArgs(serviceId string) *kurtosis_core_rpc_api_bindings.Get
 	}
 }
 
-func NewGetServiceInfoResponse(ipAddr string, enclaveDataDirMountDirpath string, relativeServiceDirpath string) *kurtosis_core_rpc_api_bindings.GetServiceInfoResponse {
+func NewGetServiceInfoResponse(
+	privateIpAddr string,
+	privatePorts map[string]*kurtosis_core_rpc_api_bindings.Port,
+	publicIpAddr string,
+	publicPorts map[string]*kurtosis_core_rpc_api_bindings.Port,
+	enclaveDataDirMountDirpath string,
+	relativeServiceDirpath string,
+) *kurtosis_core_rpc_api_bindings.GetServiceInfoResponse {
 	return &kurtosis_core_rpc_api_bindings.GetServiceInfoResponse{
-		IpAddr:                     ipAddr,
+		PrivateIpAddr:              privateIpAddr,
+		PrivatePorts:               privatePorts,
+		PublicIpAddr:               publicIpAddr,
+		PublicPorts:                publicPorts,
 		EnclaveDataDirMountDirpath: enclaveDataDirMountDirpath,
 		RelativeServiceDirpath:     relativeServiceDirpath,
 	}
