@@ -116,18 +116,28 @@ export class LoadModuleResponse extends jspb.Message {
   getPrivateIpAddr(): string;
   setPrivateIpAddr(value: string): void;
 
-  hasPrivatePort(): boolean;
-  clearPrivatePort(): void;
-  getPrivatePort(): Port | undefined;
-  setPrivatePort(value?: Port): void;
+  hasPrivateGrpcPort(): boolean;
+  clearPrivateGrpcPort(): void;
+  getPrivateGrpcPort(): Port | undefined;
+  setPrivateGrpcPort(value?: Port): void;
+
+  hasPrivateGrpcProxyPort(): boolean;
+  clearPrivateGrpcProxyPort(): void;
+  getPrivateGrpcProxyPort(): Port | undefined;
+  setPrivateGrpcProxyPort(value?: Port): void;
 
   getPublicIpAddr(): string;
   setPublicIpAddr(value: string): void;
 
-  hasPublicPort(): boolean;
-  clearPublicPort(): void;
-  getPublicPort(): Port | undefined;
-  setPublicPort(value?: Port): void;
+  hasPublicGrpcPort(): boolean;
+  clearPublicGrpcPort(): void;
+  getPublicGrpcPort(): Port | undefined;
+  setPublicGrpcPort(value?: Port): void;
+
+  hasPublicGrpcProxyPort(): boolean;
+  clearPublicGrpcProxyPort(): void;
+  getPublicGrpcProxyPort(): Port | undefined;
+  setPublicGrpcProxyPort(value?: Port): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): LoadModuleResponse.AsObject;
@@ -142,9 +152,11 @@ export class LoadModuleResponse extends jspb.Message {
 export namespace LoadModuleResponse {
   export type AsObject = {
     privateIpAddr: string,
-    privatePort?: Port.AsObject,
+    privateGrpcPort?: Port.AsObject,
+    privateGrpcProxyPort?: Port.AsObject,
     publicIpAddr: string,
-    publicPort?: Port.AsObject,
+    publicGrpcPort?: Port.AsObject,
+    publicGrpcProxyPort?: Port.AsObject,
   }
 }
 
@@ -236,18 +248,28 @@ export class GetModuleInfoResponse extends jspb.Message {
   getPrivateIpAddr(): string;
   setPrivateIpAddr(value: string): void;
 
-  hasPrivatePort(): boolean;
-  clearPrivatePort(): void;
-  getPrivatePort(): Port | undefined;
-  setPrivatePort(value?: Port): void;
+  hasPrivateGrpcPort(): boolean;
+  clearPrivateGrpcPort(): void;
+  getPrivateGrpcPort(): Port | undefined;
+  setPrivateGrpcPort(value?: Port): void;
+
+  hasPrivateGrpcProxyPort(): boolean;
+  clearPrivateGrpcProxyPort(): void;
+  getPrivateGrpcProxyPort(): Port | undefined;
+  setPrivateGrpcProxyPort(value?: Port): void;
 
   getPublicIpAddr(): string;
   setPublicIpAddr(value: string): void;
 
-  hasPublicPort(): boolean;
-  clearPublicPort(): void;
-  getPublicPort(): Port | undefined;
-  setPublicPort(value?: Port): void;
+  hasPublicGrpcPort(): boolean;
+  clearPublicGrpcPort(): void;
+  getPublicGrpcPort(): Port | undefined;
+  setPublicGrpcPort(value?: Port): void;
+
+  hasPublicGrpcProxyPort(): boolean;
+  clearPublicGrpcProxyPort(): void;
+  getPublicGrpcProxyPort(): Port | undefined;
+  setPublicGrpcProxyPort(value?: Port): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetModuleInfoResponse.AsObject;
@@ -262,9 +284,11 @@ export class GetModuleInfoResponse extends jspb.Message {
 export namespace GetModuleInfoResponse {
   export type AsObject = {
     privateIpAddr: string,
-    privatePort?: Port.AsObject,
+    privateGrpcPort?: Port.AsObject,
+    privateGrpcProxyPort?: Port.AsObject,
     publicIpAddr: string,
-    publicPort?: Port.AsObject,
+    publicGrpcPort?: Port.AsObject,
+    publicGrpcProxyPort?: Port.AsObject,
   }
 }
 

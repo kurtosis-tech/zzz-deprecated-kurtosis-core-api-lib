@@ -1368,9 +1368,11 @@ proto.api_container_api.LoadModuleResponse.prototype.toObject = function(opt_inc
 proto.api_container_api.LoadModuleResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     privateIpAddr: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    privatePort: (f = msg.getPrivatePort()) && proto.api_container_api.Port.toObject(includeInstance, f),
-    publicIpAddr: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    publicPort: (f = msg.getPublicPort()) && proto.api_container_api.Port.toObject(includeInstance, f)
+    privateGrpcPort: (f = msg.getPrivateGrpcPort()) && proto.api_container_api.Port.toObject(includeInstance, f),
+    privateGrpcProxyPort: (f = msg.getPrivateGrpcProxyPort()) && proto.api_container_api.Port.toObject(includeInstance, f),
+    publicIpAddr: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    publicGrpcPort: (f = msg.getPublicGrpcPort()) && proto.api_container_api.Port.toObject(includeInstance, f),
+    publicGrpcProxyPort: (f = msg.getPublicGrpcProxyPort()) && proto.api_container_api.Port.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1414,16 +1416,26 @@ proto.api_container_api.LoadModuleResponse.deserializeBinaryFromReader = functio
     case 2:
       var value = new proto.api_container_api.Port;
       reader.readMessage(value,proto.api_container_api.Port.deserializeBinaryFromReader);
-      msg.setPrivatePort(value);
+      msg.setPrivateGrpcPort(value);
       break;
     case 3:
+      var value = new proto.api_container_api.Port;
+      reader.readMessage(value,proto.api_container_api.Port.deserializeBinaryFromReader);
+      msg.setPrivateGrpcProxyPort(value);
+      break;
+    case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setPublicIpAddr(value);
       break;
-    case 4:
+    case 5:
       var value = new proto.api_container_api.Port;
       reader.readMessage(value,proto.api_container_api.Port.deserializeBinaryFromReader);
-      msg.setPublicPort(value);
+      msg.setPublicGrpcPort(value);
+      break;
+    case 6:
+      var value = new proto.api_container_api.Port;
+      reader.readMessage(value,proto.api_container_api.Port.deserializeBinaryFromReader);
+      msg.setPublicGrpcProxyPort(value);
       break;
     default:
       reader.skipField();
@@ -1461,7 +1473,7 @@ proto.api_container_api.LoadModuleResponse.serializeBinaryToWriter = function(me
       f
     );
   }
-  f = message.getPrivatePort();
+  f = message.getPrivateGrpcPort();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -1469,17 +1481,33 @@ proto.api_container_api.LoadModuleResponse.serializeBinaryToWriter = function(me
       proto.api_container_api.Port.serializeBinaryToWriter
     );
   }
+  f = message.getPrivateGrpcProxyPort();
+  if (f != null) {
+    writer.writeMessage(
+      3,
+      f,
+      proto.api_container_api.Port.serializeBinaryToWriter
+    );
+  }
   f = message.getPublicIpAddr();
   if (f.length > 0) {
     writer.writeString(
-      3,
+      4,
       f
     );
   }
-  f = message.getPublicPort();
+  f = message.getPublicGrpcPort();
   if (f != null) {
     writer.writeMessage(
-      4,
+      5,
+      f,
+      proto.api_container_api.Port.serializeBinaryToWriter
+    );
+  }
+  f = message.getPublicGrpcProxyPort();
+  if (f != null) {
+    writer.writeMessage(
+      6,
       f,
       proto.api_container_api.Port.serializeBinaryToWriter
     );
@@ -1506,10 +1534,10 @@ proto.api_container_api.LoadModuleResponse.prototype.setPrivateIpAddr = function
 
 
 /**
- * optional Port private_port = 2;
+ * optional Port private_grpc_port = 2;
  * @return {?proto.api_container_api.Port}
  */
-proto.api_container_api.LoadModuleResponse.prototype.getPrivatePort = function() {
+proto.api_container_api.LoadModuleResponse.prototype.getPrivateGrpcPort = function() {
   return /** @type{?proto.api_container_api.Port} */ (
     jspb.Message.getWrapperField(this, proto.api_container_api.Port, 2));
 };
@@ -1519,7 +1547,7 @@ proto.api_container_api.LoadModuleResponse.prototype.getPrivatePort = function()
  * @param {?proto.api_container_api.Port|undefined} value
  * @return {!proto.api_container_api.LoadModuleResponse} returns this
 */
-proto.api_container_api.LoadModuleResponse.prototype.setPrivatePort = function(value) {
+proto.api_container_api.LoadModuleResponse.prototype.setPrivateGrpcPort = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
@@ -1528,8 +1556,8 @@ proto.api_container_api.LoadModuleResponse.prototype.setPrivatePort = function(v
  * Clears the message field making it undefined.
  * @return {!proto.api_container_api.LoadModuleResponse} returns this
  */
-proto.api_container_api.LoadModuleResponse.prototype.clearPrivatePort = function() {
-  return this.setPrivatePort(undefined);
+proto.api_container_api.LoadModuleResponse.prototype.clearPrivateGrpcPort = function() {
+  return this.setPrivateGrpcPort(undefined);
 };
 
 
@@ -1537,17 +1565,54 @@ proto.api_container_api.LoadModuleResponse.prototype.clearPrivatePort = function
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.api_container_api.LoadModuleResponse.prototype.hasPrivatePort = function() {
+proto.api_container_api.LoadModuleResponse.prototype.hasPrivateGrpcPort = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
 
 /**
- * optional string public_ip_addr = 3;
+ * optional Port private_grpc_proxy_port = 3;
+ * @return {?proto.api_container_api.Port}
+ */
+proto.api_container_api.LoadModuleResponse.prototype.getPrivateGrpcProxyPort = function() {
+  return /** @type{?proto.api_container_api.Port} */ (
+    jspb.Message.getWrapperField(this, proto.api_container_api.Port, 3));
+};
+
+
+/**
+ * @param {?proto.api_container_api.Port|undefined} value
+ * @return {!proto.api_container_api.LoadModuleResponse} returns this
+*/
+proto.api_container_api.LoadModuleResponse.prototype.setPrivateGrpcProxyPort = function(value) {
+  return jspb.Message.setWrapperField(this, 3, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.api_container_api.LoadModuleResponse} returns this
+ */
+proto.api_container_api.LoadModuleResponse.prototype.clearPrivateGrpcProxyPort = function() {
+  return this.setPrivateGrpcProxyPort(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.api_container_api.LoadModuleResponse.prototype.hasPrivateGrpcProxyPort = function() {
+  return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string public_ip_addr = 4;
  * @return {string}
  */
 proto.api_container_api.LoadModuleResponse.prototype.getPublicIpAddr = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -1556,17 +1621,17 @@ proto.api_container_api.LoadModuleResponse.prototype.getPublicIpAddr = function(
  * @return {!proto.api_container_api.LoadModuleResponse} returns this
  */
 proto.api_container_api.LoadModuleResponse.prototype.setPublicIpAddr = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
 /**
- * optional Port public_port = 4;
+ * optional Port public_grpc_port = 5;
  * @return {?proto.api_container_api.Port}
  */
-proto.api_container_api.LoadModuleResponse.prototype.getPublicPort = function() {
+proto.api_container_api.LoadModuleResponse.prototype.getPublicGrpcPort = function() {
   return /** @type{?proto.api_container_api.Port} */ (
-    jspb.Message.getWrapperField(this, proto.api_container_api.Port, 4));
+    jspb.Message.getWrapperField(this, proto.api_container_api.Port, 5));
 };
 
 
@@ -1574,8 +1639,8 @@ proto.api_container_api.LoadModuleResponse.prototype.getPublicPort = function() 
  * @param {?proto.api_container_api.Port|undefined} value
  * @return {!proto.api_container_api.LoadModuleResponse} returns this
 */
-proto.api_container_api.LoadModuleResponse.prototype.setPublicPort = function(value) {
-  return jspb.Message.setWrapperField(this, 4, value);
+proto.api_container_api.LoadModuleResponse.prototype.setPublicGrpcPort = function(value) {
+  return jspb.Message.setWrapperField(this, 5, value);
 };
 
 
@@ -1583,8 +1648,8 @@ proto.api_container_api.LoadModuleResponse.prototype.setPublicPort = function(va
  * Clears the message field making it undefined.
  * @return {!proto.api_container_api.LoadModuleResponse} returns this
  */
-proto.api_container_api.LoadModuleResponse.prototype.clearPublicPort = function() {
-  return this.setPublicPort(undefined);
+proto.api_container_api.LoadModuleResponse.prototype.clearPublicGrpcPort = function() {
+  return this.setPublicGrpcPort(undefined);
 };
 
 
@@ -1592,8 +1657,45 @@ proto.api_container_api.LoadModuleResponse.prototype.clearPublicPort = function(
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.api_container_api.LoadModuleResponse.prototype.hasPublicPort = function() {
-  return jspb.Message.getField(this, 4) != null;
+proto.api_container_api.LoadModuleResponse.prototype.hasPublicGrpcPort = function() {
+  return jspb.Message.getField(this, 5) != null;
+};
+
+
+/**
+ * optional Port public_grpc_proxy_port = 6;
+ * @return {?proto.api_container_api.Port}
+ */
+proto.api_container_api.LoadModuleResponse.prototype.getPublicGrpcProxyPort = function() {
+  return /** @type{?proto.api_container_api.Port} */ (
+    jspb.Message.getWrapperField(this, proto.api_container_api.Port, 6));
+};
+
+
+/**
+ * @param {?proto.api_container_api.Port|undefined} value
+ * @return {!proto.api_container_api.LoadModuleResponse} returns this
+*/
+proto.api_container_api.LoadModuleResponse.prototype.setPublicGrpcProxyPort = function(value) {
+  return jspb.Message.setWrapperField(this, 6, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.api_container_api.LoadModuleResponse} returns this
+ */
+proto.api_container_api.LoadModuleResponse.prototype.clearPublicGrpcProxyPort = function() {
+  return this.setPublicGrpcProxyPort(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.api_container_api.LoadModuleResponse.prototype.hasPublicGrpcProxyPort = function() {
+  return jspb.Message.getField(this, 6) != null;
 };
 
 
@@ -2180,9 +2282,11 @@ proto.api_container_api.GetModuleInfoResponse.prototype.toObject = function(opt_
 proto.api_container_api.GetModuleInfoResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     privateIpAddr: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    privatePort: (f = msg.getPrivatePort()) && proto.api_container_api.Port.toObject(includeInstance, f),
-    publicIpAddr: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    publicPort: (f = msg.getPublicPort()) && proto.api_container_api.Port.toObject(includeInstance, f)
+    privateGrpcPort: (f = msg.getPrivateGrpcPort()) && proto.api_container_api.Port.toObject(includeInstance, f),
+    privateGrpcProxyPort: (f = msg.getPrivateGrpcProxyPort()) && proto.api_container_api.Port.toObject(includeInstance, f),
+    publicIpAddr: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    publicGrpcPort: (f = msg.getPublicGrpcPort()) && proto.api_container_api.Port.toObject(includeInstance, f),
+    publicGrpcProxyPort: (f = msg.getPublicGrpcProxyPort()) && proto.api_container_api.Port.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2226,16 +2330,26 @@ proto.api_container_api.GetModuleInfoResponse.deserializeBinaryFromReader = func
     case 2:
       var value = new proto.api_container_api.Port;
       reader.readMessage(value,proto.api_container_api.Port.deserializeBinaryFromReader);
-      msg.setPrivatePort(value);
+      msg.setPrivateGrpcPort(value);
       break;
     case 3:
+      var value = new proto.api_container_api.Port;
+      reader.readMessage(value,proto.api_container_api.Port.deserializeBinaryFromReader);
+      msg.setPrivateGrpcProxyPort(value);
+      break;
+    case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setPublicIpAddr(value);
       break;
-    case 4:
+    case 5:
       var value = new proto.api_container_api.Port;
       reader.readMessage(value,proto.api_container_api.Port.deserializeBinaryFromReader);
-      msg.setPublicPort(value);
+      msg.setPublicGrpcPort(value);
+      break;
+    case 6:
+      var value = new proto.api_container_api.Port;
+      reader.readMessage(value,proto.api_container_api.Port.deserializeBinaryFromReader);
+      msg.setPublicGrpcProxyPort(value);
       break;
     default:
       reader.skipField();
@@ -2273,7 +2387,7 @@ proto.api_container_api.GetModuleInfoResponse.serializeBinaryToWriter = function
       f
     );
   }
-  f = message.getPrivatePort();
+  f = message.getPrivateGrpcPort();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -2281,17 +2395,33 @@ proto.api_container_api.GetModuleInfoResponse.serializeBinaryToWriter = function
       proto.api_container_api.Port.serializeBinaryToWriter
     );
   }
+  f = message.getPrivateGrpcProxyPort();
+  if (f != null) {
+    writer.writeMessage(
+      3,
+      f,
+      proto.api_container_api.Port.serializeBinaryToWriter
+    );
+  }
   f = message.getPublicIpAddr();
   if (f.length > 0) {
     writer.writeString(
-      3,
+      4,
       f
     );
   }
-  f = message.getPublicPort();
+  f = message.getPublicGrpcPort();
   if (f != null) {
     writer.writeMessage(
-      4,
+      5,
+      f,
+      proto.api_container_api.Port.serializeBinaryToWriter
+    );
+  }
+  f = message.getPublicGrpcProxyPort();
+  if (f != null) {
+    writer.writeMessage(
+      6,
       f,
       proto.api_container_api.Port.serializeBinaryToWriter
     );
@@ -2318,10 +2448,10 @@ proto.api_container_api.GetModuleInfoResponse.prototype.setPrivateIpAddr = funct
 
 
 /**
- * optional Port private_port = 2;
+ * optional Port private_grpc_port = 2;
  * @return {?proto.api_container_api.Port}
  */
-proto.api_container_api.GetModuleInfoResponse.prototype.getPrivatePort = function() {
+proto.api_container_api.GetModuleInfoResponse.prototype.getPrivateGrpcPort = function() {
   return /** @type{?proto.api_container_api.Port} */ (
     jspb.Message.getWrapperField(this, proto.api_container_api.Port, 2));
 };
@@ -2331,7 +2461,7 @@ proto.api_container_api.GetModuleInfoResponse.prototype.getPrivatePort = functio
  * @param {?proto.api_container_api.Port|undefined} value
  * @return {!proto.api_container_api.GetModuleInfoResponse} returns this
 */
-proto.api_container_api.GetModuleInfoResponse.prototype.setPrivatePort = function(value) {
+proto.api_container_api.GetModuleInfoResponse.prototype.setPrivateGrpcPort = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
@@ -2340,8 +2470,8 @@ proto.api_container_api.GetModuleInfoResponse.prototype.setPrivatePort = functio
  * Clears the message field making it undefined.
  * @return {!proto.api_container_api.GetModuleInfoResponse} returns this
  */
-proto.api_container_api.GetModuleInfoResponse.prototype.clearPrivatePort = function() {
-  return this.setPrivatePort(undefined);
+proto.api_container_api.GetModuleInfoResponse.prototype.clearPrivateGrpcPort = function() {
+  return this.setPrivateGrpcPort(undefined);
 };
 
 
@@ -2349,17 +2479,54 @@ proto.api_container_api.GetModuleInfoResponse.prototype.clearPrivatePort = funct
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.api_container_api.GetModuleInfoResponse.prototype.hasPrivatePort = function() {
+proto.api_container_api.GetModuleInfoResponse.prototype.hasPrivateGrpcPort = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
 
 /**
- * optional string public_ip_addr = 3;
+ * optional Port private_grpc_proxy_port = 3;
+ * @return {?proto.api_container_api.Port}
+ */
+proto.api_container_api.GetModuleInfoResponse.prototype.getPrivateGrpcProxyPort = function() {
+  return /** @type{?proto.api_container_api.Port} */ (
+    jspb.Message.getWrapperField(this, proto.api_container_api.Port, 3));
+};
+
+
+/**
+ * @param {?proto.api_container_api.Port|undefined} value
+ * @return {!proto.api_container_api.GetModuleInfoResponse} returns this
+*/
+proto.api_container_api.GetModuleInfoResponse.prototype.setPrivateGrpcProxyPort = function(value) {
+  return jspb.Message.setWrapperField(this, 3, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.api_container_api.GetModuleInfoResponse} returns this
+ */
+proto.api_container_api.GetModuleInfoResponse.prototype.clearPrivateGrpcProxyPort = function() {
+  return this.setPrivateGrpcProxyPort(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.api_container_api.GetModuleInfoResponse.prototype.hasPrivateGrpcProxyPort = function() {
+  return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string public_ip_addr = 4;
  * @return {string}
  */
 proto.api_container_api.GetModuleInfoResponse.prototype.getPublicIpAddr = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -2368,17 +2535,17 @@ proto.api_container_api.GetModuleInfoResponse.prototype.getPublicIpAddr = functi
  * @return {!proto.api_container_api.GetModuleInfoResponse} returns this
  */
 proto.api_container_api.GetModuleInfoResponse.prototype.setPublicIpAddr = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
 /**
- * optional Port public_port = 4;
+ * optional Port public_grpc_port = 5;
  * @return {?proto.api_container_api.Port}
  */
-proto.api_container_api.GetModuleInfoResponse.prototype.getPublicPort = function() {
+proto.api_container_api.GetModuleInfoResponse.prototype.getPublicGrpcPort = function() {
   return /** @type{?proto.api_container_api.Port} */ (
-    jspb.Message.getWrapperField(this, proto.api_container_api.Port, 4));
+    jspb.Message.getWrapperField(this, proto.api_container_api.Port, 5));
 };
 
 
@@ -2386,8 +2553,8 @@ proto.api_container_api.GetModuleInfoResponse.prototype.getPublicPort = function
  * @param {?proto.api_container_api.Port|undefined} value
  * @return {!proto.api_container_api.GetModuleInfoResponse} returns this
 */
-proto.api_container_api.GetModuleInfoResponse.prototype.setPublicPort = function(value) {
-  return jspb.Message.setWrapperField(this, 4, value);
+proto.api_container_api.GetModuleInfoResponse.prototype.setPublicGrpcPort = function(value) {
+  return jspb.Message.setWrapperField(this, 5, value);
 };
 
 
@@ -2395,8 +2562,8 @@ proto.api_container_api.GetModuleInfoResponse.prototype.setPublicPort = function
  * Clears the message field making it undefined.
  * @return {!proto.api_container_api.GetModuleInfoResponse} returns this
  */
-proto.api_container_api.GetModuleInfoResponse.prototype.clearPublicPort = function() {
-  return this.setPublicPort(undefined);
+proto.api_container_api.GetModuleInfoResponse.prototype.clearPublicGrpcPort = function() {
+  return this.setPublicGrpcPort(undefined);
 };
 
 
@@ -2404,8 +2571,45 @@ proto.api_container_api.GetModuleInfoResponse.prototype.clearPublicPort = functi
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.api_container_api.GetModuleInfoResponse.prototype.hasPublicPort = function() {
-  return jspb.Message.getField(this, 4) != null;
+proto.api_container_api.GetModuleInfoResponse.prototype.hasPublicGrpcPort = function() {
+  return jspb.Message.getField(this, 5) != null;
+};
+
+
+/**
+ * optional Port public_grpc_proxy_port = 6;
+ * @return {?proto.api_container_api.Port}
+ */
+proto.api_container_api.GetModuleInfoResponse.prototype.getPublicGrpcProxyPort = function() {
+  return /** @type{?proto.api_container_api.Port} */ (
+    jspb.Message.getWrapperField(this, proto.api_container_api.Port, 6));
+};
+
+
+/**
+ * @param {?proto.api_container_api.Port|undefined} value
+ * @return {!proto.api_container_api.GetModuleInfoResponse} returns this
+*/
+proto.api_container_api.GetModuleInfoResponse.prototype.setPublicGrpcProxyPort = function(value) {
+  return jspb.Message.setWrapperField(this, 6, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.api_container_api.GetModuleInfoResponse} returns this
+ */
+proto.api_container_api.GetModuleInfoResponse.prototype.clearPublicGrpcProxyPort = function() {
+  return this.setPublicGrpcProxyPort(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.api_container_api.GetModuleInfoResponse.prototype.hasPublicGrpcProxyPort = function() {
+  return jspb.Message.getField(this, 6) != null;
 };
 
 

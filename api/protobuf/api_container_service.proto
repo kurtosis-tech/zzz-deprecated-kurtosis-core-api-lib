@@ -121,14 +121,20 @@ message LoadModuleResponse {
   // The IP address of the module inside the enclave
   string private_ip_addr = 1;
 
-  // The port on which the module is reachable inside the enclave
-  Port private_port = 2;
+  // The grpc port on which the module is reachable inside the enclave
+  Port private_grpc_port = 2;
+
+  // The grpc-proxy port on which the module is reachable inside the enclave
+  Port private_grpc_proxy_port = 3;
 
   // Public IP address *outside* the enclave where the module is reachable
-  string public_ip_addr = 3;
+  string public_ip_addr = 4;
 
-  // The port the module can be reached at *outside* the enclave
-  Port public_port = 4;
+  // The grpc port the module can be reached at *outside* the enclave
+  Port public_grpc_port = 5;
+
+  // The grpc-proxy port the module can be reached at *outside* the enclave
+  Port public_grpc_proxy_port = 6;
 }
 
 // ==============================================================================================
@@ -166,14 +172,20 @@ message GetModuleInfoResponse {
   // The IP address of the module inside the enclave
   string private_ip_addr = 1;
 
-  // The port on which the module is reachable inside the enclave
-  Port private_port = 2;
+  // The grpc port on which the module is reachable inside the enclave
+  Port private_grpc_port = 2;
+
+  // The grpc-proxy port on which the module is reachable inside the enclave
+  Port private_grpc_proxy_port = 3;
 
   // Public IP address *outside* the enclave where the module is reachable
-  string public_ip_addr = 3;
+  string public_ip_addr = 4;
 
-  // The port the module can be reached at *outside* the enclave
-  Port public_port = 4;
+  // The grpc port the module can be reached at *outside* the enclave
+  Port public_grpc_port = 5;
+
+  // The grpc-proxy port the module can be reached at *outside* the enclave
+  Port public_grpc_proxy_port = 6;
 }
 
 // ==============================================================================================
