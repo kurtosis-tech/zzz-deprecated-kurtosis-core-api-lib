@@ -5,7 +5,7 @@
 
 package services
 
-import "github.com/kurtosis-tech/kurtosis-core-api-lib/api/golang/kurtosis_core_rpc_api_bindings"
+import "github.com/kurtosis-tech/kurtosis-core/api/golang/kurtosis_core_rpc_api_bindings"
 
 // Use a type alias here to make this a bit more user-friendly
 type PortProtocol kurtosis_core_rpc_api_bindings.Port_Protocol

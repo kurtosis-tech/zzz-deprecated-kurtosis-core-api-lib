@@ -19,8 +19,8 @@ package services
 
 import (
 	"context"
-	"github.com/kurtosis-tech/kurtosis-core-api-lib/api/golang/kurtosis_core_rpc_api_bindings"
-	"github.com/kurtosis-tech/kurtosis-core-api-lib/api/golang/lib/binding_constructors"
+	"github.com/kurtosis-tech/kurtosis-core/api/golang/kurtosis_core_rpc_api_bindings"
+	"github.com/kurtosis-tech/kurtosis-core/api/golang/lib/binding_constructors"
 	"github.com/kurtosis-tech/stacktrace"
 )
 
@@ -86,4 +86,20 @@ func (self *ServiceContext) ExecCommand(command []string) (int32, string, error)
 			serviceId)
 	}
 	return resp.ExitCode, resp.LogOutput, nil
+}
+
+// Docs available at https://docs.kurtosistech.com/kurtosis-core/lib-documentation
+func (self *ServiceContext) PauseService() error {
+	serviceId := self.serviceId
+	args := binding_constructors.NewPauseServiceArgs(string(serviceId))
+	_, err := self.client.PauseService(context.Background(), args)
+	return err
+}
+
+// Docs available at https://docs.kurtosistech.com/kurtosis-core/lib-documentation
+func (self *ServiceContext) UnpauseService() error {
+	serviceId := self.serviceId
+	args := binding_constructors.NewUnpauseServiceArgs(string(serviceId))
+	_, err := self.client.UnpauseService(context.Background(), args)
+	return err
 }

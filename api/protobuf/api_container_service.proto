@@ -3,7 +3,7 @@ package api_container_api;
 
 // NOTE: It sucks that we have this Go-specific logic inside this file (which should be language-agnostic). However, the Protobuf team have
 // taken a hard stance on this being the way it should be done, so we have to do it this way.
-option go_package = "github.com/kurtosis-tech/kurtosis-core-api-lib/api/golang/kurtosis_core_rpc_api_bindings";
+option go_package = "github.com/kurtosis-tech/kurtosis-core/api/golang/kurtosis_core_rpc_api_bindings";
 
 import "google/protobuf/empty.proto";
 
@@ -41,6 +41,12 @@ service ApiContainerService {
 
   // Executes the given command inside a running container
   rpc ExecCommand(ExecCommandArgs) returns (ExecCommandResponse) {};
+
+  // Pauses all processes running in the service container
+  rpc PauseService(PauseServiceArgs) returns (google.protobuf.Empty) {};
+
+  // Unpauses all paused processes running in the service container
+  rpc UnpauseService(UnpauseServiceArgs) returns (google.protobuf.Empty) {};
 
   // Block until the given HTTP endpoint returns available, calling it through a HTTP Get request
   rpc WaitForHttpGetEndpointAvailability(WaitForHttpGetEndpointAvailabilityArgs) returns (google.protobuf.Empty) {};
@@ -291,6 +297,16 @@ message ExecCommandArgs {
   string service_id = 1;
 
   repeated string command_args = 2;
+}
+
+message PauseServiceArgs {
+  // The service ID of the container that should be paused
+  string service_id = 1;
+}
+
+message UnpauseServiceArgs {
+  // The service ID of the container that should be unpaused
+  string service_id = 1;
 }
 
 message ExecCommandResponse {

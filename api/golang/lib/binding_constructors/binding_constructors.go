@@ -1,7 +1,7 @@
 package binding_constructors
 
 import (
-	"github.com/kurtosis-tech/kurtosis-core-api-lib/api/golang/kurtosis_core_rpc_api_bindings"
+	"github.com/kurtosis-tech/kurtosis-core/api/golang/kurtosis_core_rpc_api_bindings"
 )
 
 // The generated bindings don't come with constructors (leaving it up to the user to initialize all the fields), so we
@@ -215,6 +215,22 @@ func NewPartitionConnections(connectionInfo map[string]*kurtosis_core_rpc_api_bi
 func NewPartitionConnectionInfo(packetLossPercentage float32) *kurtosis_core_rpc_api_bindings.PartitionConnectionInfo {
 	return &kurtosis_core_rpc_api_bindings.PartitionConnectionInfo{
 		PacketLossPercentage: packetLossPercentage,
+	}
+}
+
+// ==============================================================================================
+//                                          Pause/Unpause Service
+// ==============================================================================================
+
+func NewPauseServiceArgs(serviceId string) *kurtosis_core_rpc_api_bindings.PauseServiceArgs {
+	return &kurtosis_core_rpc_api_bindings.PauseServiceArgs{
+		ServiceId:   serviceId,
+	}
+}
+
+func NewUnpauseServiceArgs(serviceId string) *kurtosis_core_rpc_api_bindings.UnpauseServiceArgs {
+	return &kurtosis_core_rpc_api_bindings.UnpauseServiceArgs{
+		ServiceId:   serviceId,
 	}
 }
 
