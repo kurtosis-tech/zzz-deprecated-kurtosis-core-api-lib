@@ -26,17 +26,17 @@ import (
 
 // Docs available at https://docs.kurtosistech.com/kurtosis-core/lib-documentation
 type ServiceContext struct {
-	client			kurtosis_core_rpc_api_bindings.ApiContainerServiceClient
-	serviceId		ServiceID
-	sharedDirectory	*SharedPath
+	client          kurtosis_core_rpc_api_bindings.ApiContainerServiceClient
+	serviceId       ServiceID
+	sharedDirectory *SharedPath
 
 	// Network location inside the enclave
-	privateIpAddr	string
-	privatePorts	map[string]*PortSpec
+	privateIpAddr string
+	privatePorts  map[string]*PortSpec
 
 	// Network location outside the enclave
-	publicIpAddr	string
-	publicPorts		map[string]*PortSpec
+	publicIpAddr string
+	publicPorts  map[string]*PortSpec
 }
 
 func NewServiceContext(client kurtosis_core_rpc_api_bindings.ApiContainerServiceClient, serviceId ServiceID, sharedDirectory *SharedPath, privateIpAddr string, privatePorts map[string]*PortSpec, publicIpAddr string, publicPorts map[string]*PortSpec) *ServiceContext {
@@ -86,4 +86,20 @@ func (self *ServiceContext) ExecCommand(command []string) (int32, string, error)
 			serviceId)
 	}
 	return resp.ExitCode, resp.LogOutput, nil
+}
+
+// Docs available at https://docs.kurtosistech.com/kurtosis-core/lib-documentation
+func (self *ServiceContext) PauseService() error {
+	serviceId := self.serviceId
+	args := binding_constructors.NewPauseServiceArgs(string(serviceId))
+	_, err := self.client.PauseService(context.Background(), args)
+	return err
+}
+
+// Docs available at https://docs.kurtosistech.com/kurtosis-core/lib-documentation
+func (self *ServiceContext) UnpauseService() error {
+	serviceId := self.serviceId
+	args := binding_constructors.NewUnpauseServiceArgs(string(serviceId))
+	_, err := self.client.UnpauseService(context.Background(), args)
+	return err
 }

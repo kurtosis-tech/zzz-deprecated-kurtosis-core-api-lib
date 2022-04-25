@@ -1,8 +1,6 @@
 package binding_constructors
 
-import (
-	"github.com/kurtosis-tech/kurtosis-core-api-lib/api/golang/kurtosis_core_rpc_api_bindings"
-)
+import "github.com/kurtosis-tech/kurtosis-core-api-lib/api/golang/kurtosis_core_rpc_api_bindings"
 
 // The generated bindings don't come with constructors (leaving it up to the user to initialize all the fields), so we
 // add them so that our code is safer
@@ -36,7 +34,7 @@ func NewLoadModuleResponse(
 	publicPort *kurtosis_core_rpc_api_bindings.Port,
 ) *kurtosis_core_rpc_api_bindings.LoadModuleResponse {
 	return &kurtosis_core_rpc_api_bindings.LoadModuleResponse{
-		Guid: guid,
+		Guid:          guid,
 		PrivateIpAddr: privateIpAddr,
 		PrivatePort:   privatePort,
 		PublicIpAddr:  publicIpAddr,
@@ -122,18 +120,18 @@ func NewRegisterServiceResponse(privateIpAddr string, relativeServiceDirpath str
 //                                        Start Service
 // ==============================================================================================
 func NewStartServiceArgs(
-		serviceId string,
-		image string,
-		privatePorts map[string]*kurtosis_core_rpc_api_bindings.Port,
-		entrypointArgs []string,
-		cmdArgs []string,
-		envVars map[string]string,
-		enclaveDataDirMntDirpath string,
-		filesArtifactMountDirpaths map[string]string) *kurtosis_core_rpc_api_bindings.StartServiceArgs {
+	serviceId string,
+	image string,
+	privatePorts map[string]*kurtosis_core_rpc_api_bindings.Port,
+	entrypointArgs []string,
+	cmdArgs []string,
+	envVars map[string]string,
+	enclaveDataDirMntDirpath string,
+	filesArtifactMountDirpaths map[string]string) *kurtosis_core_rpc_api_bindings.StartServiceArgs {
 	return &kurtosis_core_rpc_api_bindings.StartServiceArgs{
 		ServiceId:                  serviceId,
 		DockerImage:                image,
-		PrivatePorts:                  privatePorts,
+		PrivatePorts:               privatePorts,
 		EntrypointArgs:             entrypointArgs,
 		CmdArgs:                    cmdArgs,
 		DockerEnvVars:              envVars,
@@ -190,9 +188,9 @@ func NewRemoveServiceArgs(serviceId string, containerStopTimeoutSeconds uint64) 
 //                                          Repartition
 // ==============================================================================================
 func NewRepartitionArgs(
-		partitionServices map[string]*kurtosis_core_rpc_api_bindings.PartitionServices,
-		partitionConnections map[string]*kurtosis_core_rpc_api_bindings.PartitionConnections,
-		defaultConnection *kurtosis_core_rpc_api_bindings.PartitionConnectionInfo) *kurtosis_core_rpc_api_bindings.RepartitionArgs {
+	partitionServices map[string]*kurtosis_core_rpc_api_bindings.PartitionServices,
+	partitionConnections map[string]*kurtosis_core_rpc_api_bindings.PartitionConnections,
+	defaultConnection *kurtosis_core_rpc_api_bindings.PartitionConnectionInfo) *kurtosis_core_rpc_api_bindings.RepartitionArgs {
 	return &kurtosis_core_rpc_api_bindings.RepartitionArgs{
 		PartitionServices:    partitionServices,
 		PartitionConnections: partitionConnections,
@@ -215,6 +213,22 @@ func NewPartitionConnections(connectionInfo map[string]*kurtosis_core_rpc_api_bi
 func NewPartitionConnectionInfo(packetLossPercentage float32) *kurtosis_core_rpc_api_bindings.PartitionConnectionInfo {
 	return &kurtosis_core_rpc_api_bindings.PartitionConnectionInfo{
 		PacketLossPercentage: packetLossPercentage,
+	}
+}
+
+// ==============================================================================================
+//                                          Pause/Unpause Service
+// ==============================================================================================
+
+func NewPauseServiceArgs(serviceId string) *kurtosis_core_rpc_api_bindings.PauseServiceArgs {
+	return &kurtosis_core_rpc_api_bindings.PauseServiceArgs{
+		ServiceId: serviceId,
+	}
+}
+
+func NewUnpauseServiceArgs(serviceId string) *kurtosis_core_rpc_api_bindings.UnpauseServiceArgs {
+	return &kurtosis_core_rpc_api_bindings.UnpauseServiceArgs{
+		ServiceId: serviceId,
 	}
 }
 
@@ -261,14 +275,14 @@ func NewWaitForHttpGetEndpointAvailabilityArgs(
 //                           Wait For Http Post Endpoint Availability
 // ==============================================================================================
 func NewWaitForHttpPostEndpointAvailabilityArgs(
-		serviceId string,
-		port uint32,
-		path string,
-		requestBody string,
-		initialDelayMilliseconds uint32,
-		retries uint32,
-		retriesDelayMilliseconds uint32,
-		bodyText string) *kurtosis_core_rpc_api_bindings.WaitForHttpPostEndpointAvailabilityArgs {
+	serviceId string,
+	port uint32,
+	path string,
+	requestBody string,
+	initialDelayMilliseconds uint32,
+	retries uint32,
+	retriesDelayMilliseconds uint32,
+	bodyText string) *kurtosis_core_rpc_api_bindings.WaitForHttpPostEndpointAvailabilityArgs {
 	return &kurtosis_core_rpc_api_bindings.WaitForHttpPostEndpointAvailabilityArgs{
 		ServiceId:                serviceId,
 		Port:                     port,
