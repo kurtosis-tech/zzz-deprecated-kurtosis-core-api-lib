@@ -1,6 +1,7 @@
 import { ok, err, Result } from "neverthrow";
 import * as grpc_web from "grpc-web";
 import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
+// @ts-ignore
 import {
     RegisterFilesArtifactsArgs,
     RegisterServiceArgs,
@@ -22,7 +23,7 @@ import {
     ExecuteModuleArgs,
     ExecuteModuleResponse,
     ExecCommandArgs,
-    ExecCommandResponse,
+    ExecCommandResponse, PauseServiceArgs, UnpauseServiceArgs,
 } from "../../kurtosis_core_rpc_api_bindings/api_container_service_pb";
 import { ApiContainerServiceClient as ApiContainerServiceClientWeb } from "../../kurtosis_core_rpc_api_bindings/api_container_service_grpc_web_pb";
 import { GenericApiContainerClient } from "./generic_api_container_client";
@@ -336,7 +337,7 @@ export class GrpcWebApiContainerClient implements GenericApiContainerClient {
         if (executeModuleResult.isErr()) {
             return err(executeModuleResult.error);
         }
-        
+
         const executeModuleResponse: ExecuteModuleResponse = executeModuleResult.value;
         return ok(executeModuleResponse);
     }
@@ -362,5 +363,41 @@ export class GrpcWebApiContainerClient implements GenericApiContainerClient {
 
         const execCommandResponse = execCommandResponseResult.value
         return ok(execCommandResponse)
+    }
+
+    public async pauseService(pauseServiceArgs: PauseServiceArgs): Promise<Result<null, Error>> {
+        const pauseServicePromise: Promise<Result<null, Error>> = new Promise((resolve, _unusedReject) => {
+            this.client.pauseService(pauseServiceArgs,  {}, (error: grpc_web.RpcError | null) => {
+                if (error === null) {
+                    resolve(ok(null))
+                } else {
+                    resolve(err(error));
+                }
+            })
+        });
+        const pauseServiceResult: Result<null, Error> = await pauseServicePromise;
+        if(pauseServiceResult.isErr()){
+            return err(pauseServiceResult.error)
+        }
+
+        return ok(null)
+    }
+
+    public async unpauseService(unpauseServiceArgs: UnpauseServiceArgs): Promise<Result<null, Error>> {
+        const unpauseServicePromise: Promise<Result<null, Error>> = new Promise((resolve, _unusedReject) => {
+            this.client.unpauseService(unpauseServiceArgs,   {}, (error: grpc_web.RpcError | null) => {
+                if (error === null) {
+                    resolve(ok(null))
+                } else {
+                    resolve(err(error));
+                }
+            })
+        });
+        const unpauseServiceResult: Result<null, Error> = await unpauseServicePromise;
+        if(unpauseServiceResult.isErr()){
+            return err(unpauseServiceResult.error)
+        }
+
+        return ok(null)
     }
 }

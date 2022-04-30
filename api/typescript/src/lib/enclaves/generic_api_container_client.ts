@@ -15,7 +15,7 @@ import {
     GetServiceInfoArgs,
     GetServiceInfoResponse,
     GetServicesResponse,
-    LoadModuleArgs,
+    LoadModuleArgs, PauseServiceArgs,
     RegisterFilesArtifactsArgs,
     RegisterServiceArgs,
     RegisterServiceResponse,
@@ -23,7 +23,7 @@ import {
     RepartitionArgs,
     StartServiceArgs,
     StartServiceResponse,
-    UnloadModuleArgs,
+    UnloadModuleArgs, UnpauseServiceArgs,
     WaitForHttpGetEndpointAvailabilityArgs,
     WaitForHttpPostEndpointAvailabilityArgs
 } from "../../kurtosis_core_rpc_api_bindings/api_container_service_pb";
@@ -46,4 +46,6 @@ export interface GenericApiContainerClient {
     getModules(emptyArg: google_protobuf_empty_pb.Empty): Promise<Result<GetModulesResponse, Error>>
     executeModule(executeModuleArgs: ExecuteModuleArgs): Promise<Result<ExecuteModuleResponse, Error>>
     execCommand(execCommandArgs: ExecCommandArgs): Promise<Result<ExecCommandResponse, Error>>
+    pauseService(pauseServiceArgs: PauseServiceArgs): Promise<Result<null, Error>>
+    unpauseService(unpauseServiceArgs: UnpauseServiceArgs): Promise<Result<null, Error>>
 }

@@ -30,20 +30,20 @@ proto.api_container_api = require('./api_container_service_pb.js');
  */
 proto.api_container_api.ApiContainerServiceClient =
     function(hostname, credentials, options) {
-  if (!options) options = {};
-  options.format = 'text';
+      if (!options) options = {};
+      options.format = 'text';
 
-  /**
-   * @private @const {!grpc.web.GrpcWebClientBase} The client
-   */
-  this.client_ = new grpc.web.GrpcWebClientBase(options);
+      /**
+       * @private @const {!grpc.web.GrpcWebClientBase} The client
+       */
+      this.client_ = new grpc.web.GrpcWebClientBase(options);
 
-  /**
-   * @private @const {string} The hostname
-   */
-  this.hostname_ = hostname;
+      /**
+       * @private @const {string} The hostname
+       */
+      this.hostname_ = hostname;
 
-};
+    };
 
 
 /**
@@ -56,20 +56,20 @@ proto.api_container_api.ApiContainerServiceClient =
  */
 proto.api_container_api.ApiContainerServicePromiseClient =
     function(hostname, credentials, options) {
-  if (!options) options = {};
-  options.format = 'text';
+      if (!options) options = {};
+      options.format = 'text';
 
-  /**
-   * @private @const {!grpc.web.GrpcWebClientBase} The client
-   */
-  this.client_ = new grpc.web.GrpcWebClientBase(options);
+      /**
+       * @private @const {!grpc.web.GrpcWebClientBase} The client
+       */
+      this.client_ = new grpc.web.GrpcWebClientBase(options);
 
-  /**
-   * @private @const {string} The hostname
-   */
-  this.hostname_ = hostname;
+      /**
+       * @private @const {string} The hostname
+       */
+      this.hostname_ = hostname;
 
-};
+    };
 
 
 /**
@@ -79,18 +79,18 @@ proto.api_container_api.ApiContainerServicePromiseClient =
  *   !proto.api_container_api.LoadModuleResponse>}
  */
 const methodDescriptor_ApiContainerService_LoadModule = new grpc.web.MethodDescriptor(
-  '/api_container_api.ApiContainerService/LoadModule',
-  grpc.web.MethodType.UNARY,
-  proto.api_container_api.LoadModuleArgs,
-  proto.api_container_api.LoadModuleResponse,
-  /**
-   * @param {!proto.api_container_api.LoadModuleArgs} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.api_container_api.LoadModuleResponse.deserializeBinary
+    '/api_container_api.ApiContainerService/LoadModule',
+    grpc.web.MethodType.UNARY,
+    proto.api_container_api.LoadModuleArgs,
+    proto.api_container_api.LoadModuleResponse,
+    /**
+     * @param {!proto.api_container_api.LoadModuleArgs} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    proto.api_container_api.LoadModuleResponse.deserializeBinary
 );
 
 
@@ -106,13 +106,13 @@ const methodDescriptor_ApiContainerService_LoadModule = new grpc.web.MethodDescr
  */
 proto.api_container_api.ApiContainerServiceClient.prototype.loadModule =
     function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/LoadModule',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_LoadModule,
-      callback);
-};
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/LoadModule',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_LoadModule,
+          callback);
+    };
 
 
 /**
@@ -125,12 +125,12 @@ proto.api_container_api.ApiContainerServiceClient.prototype.loadModule =
  */
 proto.api_container_api.ApiContainerServicePromiseClient.prototype.loadModule =
     function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/LoadModule',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_LoadModule);
-};
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/LoadModule',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_LoadModule);
+    };
 
 
 /**
@@ -140,18 +140,18 @@ proto.api_container_api.ApiContainerServicePromiseClient.prototype.loadModule =
  *   !proto.google.protobuf.Empty>}
  */
 const methodDescriptor_ApiContainerService_UnloadModule = new grpc.web.MethodDescriptor(
-  '/api_container_api.ApiContainerService/UnloadModule',
-  grpc.web.MethodType.UNARY,
-  proto.api_container_api.UnloadModuleArgs,
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.api_container_api.UnloadModuleArgs} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
+    '/api_container_api.ApiContainerService/UnloadModule',
+    grpc.web.MethodType.UNARY,
+    proto.api_container_api.UnloadModuleArgs,
+    google_protobuf_empty_pb.Empty,
+    /**
+     * @param {!proto.api_container_api.UnloadModuleArgs} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    google_protobuf_empty_pb.Empty.deserializeBinary
 );
 
 
@@ -167,13 +167,13 @@ const methodDescriptor_ApiContainerService_UnloadModule = new grpc.web.MethodDes
  */
 proto.api_container_api.ApiContainerServiceClient.prototype.unloadModule =
     function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/UnloadModule',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_UnloadModule,
-      callback);
-};
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/UnloadModule',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_UnloadModule,
+          callback);
+    };
 
 
 /**
@@ -186,12 +186,12 @@ proto.api_container_api.ApiContainerServiceClient.prototype.unloadModule =
  */
 proto.api_container_api.ApiContainerServicePromiseClient.prototype.unloadModule =
     function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/UnloadModule',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_UnloadModule);
-};
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/UnloadModule',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_UnloadModule);
+    };
 
 
 /**
@@ -201,18 +201,18 @@ proto.api_container_api.ApiContainerServicePromiseClient.prototype.unloadModule 
  *   !proto.api_container_api.ExecuteModuleResponse>}
  */
 const methodDescriptor_ApiContainerService_ExecuteModule = new grpc.web.MethodDescriptor(
-  '/api_container_api.ApiContainerService/ExecuteModule',
-  grpc.web.MethodType.UNARY,
-  proto.api_container_api.ExecuteModuleArgs,
-  proto.api_container_api.ExecuteModuleResponse,
-  /**
-   * @param {!proto.api_container_api.ExecuteModuleArgs} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.api_container_api.ExecuteModuleResponse.deserializeBinary
+    '/api_container_api.ApiContainerService/ExecuteModule',
+    grpc.web.MethodType.UNARY,
+    proto.api_container_api.ExecuteModuleArgs,
+    proto.api_container_api.ExecuteModuleResponse,
+    /**
+     * @param {!proto.api_container_api.ExecuteModuleArgs} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    proto.api_container_api.ExecuteModuleResponse.deserializeBinary
 );
 
 
@@ -228,13 +228,13 @@ const methodDescriptor_ApiContainerService_ExecuteModule = new grpc.web.MethodDe
  */
 proto.api_container_api.ApiContainerServiceClient.prototype.executeModule =
     function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/ExecuteModule',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_ExecuteModule,
-      callback);
-};
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/ExecuteModule',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_ExecuteModule,
+          callback);
+    };
 
 
 /**
@@ -247,12 +247,12 @@ proto.api_container_api.ApiContainerServiceClient.prototype.executeModule =
  */
 proto.api_container_api.ApiContainerServicePromiseClient.prototype.executeModule =
     function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/ExecuteModule',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_ExecuteModule);
-};
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/ExecuteModule',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_ExecuteModule);
+    };
 
 
 /**
@@ -262,18 +262,18 @@ proto.api_container_api.ApiContainerServicePromiseClient.prototype.executeModule
  *   !proto.api_container_api.GetModuleInfoResponse>}
  */
 const methodDescriptor_ApiContainerService_GetModuleInfo = new grpc.web.MethodDescriptor(
-  '/api_container_api.ApiContainerService/GetModuleInfo',
-  grpc.web.MethodType.UNARY,
-  proto.api_container_api.GetModuleInfoArgs,
-  proto.api_container_api.GetModuleInfoResponse,
-  /**
-   * @param {!proto.api_container_api.GetModuleInfoArgs} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.api_container_api.GetModuleInfoResponse.deserializeBinary
+    '/api_container_api.ApiContainerService/GetModuleInfo',
+    grpc.web.MethodType.UNARY,
+    proto.api_container_api.GetModuleInfoArgs,
+    proto.api_container_api.GetModuleInfoResponse,
+    /**
+     * @param {!proto.api_container_api.GetModuleInfoArgs} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    proto.api_container_api.GetModuleInfoResponse.deserializeBinary
 );
 
 
@@ -289,13 +289,13 @@ const methodDescriptor_ApiContainerService_GetModuleInfo = new grpc.web.MethodDe
  */
 proto.api_container_api.ApiContainerServiceClient.prototype.getModuleInfo =
     function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/GetModuleInfo',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_GetModuleInfo,
-      callback);
-};
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/GetModuleInfo',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_GetModuleInfo,
+          callback);
+    };
 
 
 /**
@@ -308,12 +308,12 @@ proto.api_container_api.ApiContainerServiceClient.prototype.getModuleInfo =
  */
 proto.api_container_api.ApiContainerServicePromiseClient.prototype.getModuleInfo =
     function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/GetModuleInfo',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_GetModuleInfo);
-};
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/GetModuleInfo',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_GetModuleInfo);
+    };
 
 
 /**
@@ -323,18 +323,18 @@ proto.api_container_api.ApiContainerServicePromiseClient.prototype.getModuleInfo
  *   !proto.google.protobuf.Empty>}
  */
 const methodDescriptor_ApiContainerService_RegisterFilesArtifacts = new grpc.web.MethodDescriptor(
-  '/api_container_api.ApiContainerService/RegisterFilesArtifacts',
-  grpc.web.MethodType.UNARY,
-  proto.api_container_api.RegisterFilesArtifactsArgs,
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.api_container_api.RegisterFilesArtifactsArgs} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
+    '/api_container_api.ApiContainerService/RegisterFilesArtifacts',
+    grpc.web.MethodType.UNARY,
+    proto.api_container_api.RegisterFilesArtifactsArgs,
+    google_protobuf_empty_pb.Empty,
+    /**
+     * @param {!proto.api_container_api.RegisterFilesArtifactsArgs} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    google_protobuf_empty_pb.Empty.deserializeBinary
 );
 
 
@@ -350,13 +350,13 @@ const methodDescriptor_ApiContainerService_RegisterFilesArtifacts = new grpc.web
  */
 proto.api_container_api.ApiContainerServiceClient.prototype.registerFilesArtifacts =
     function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/RegisterFilesArtifacts',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_RegisterFilesArtifacts,
-      callback);
-};
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/RegisterFilesArtifacts',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_RegisterFilesArtifacts,
+          callback);
+    };
 
 
 /**
@@ -369,12 +369,12 @@ proto.api_container_api.ApiContainerServiceClient.prototype.registerFilesArtifac
  */
 proto.api_container_api.ApiContainerServicePromiseClient.prototype.registerFilesArtifacts =
     function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/RegisterFilesArtifacts',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_RegisterFilesArtifacts);
-};
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/RegisterFilesArtifacts',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_RegisterFilesArtifacts);
+    };
 
 
 /**
@@ -384,18 +384,18 @@ proto.api_container_api.ApiContainerServicePromiseClient.prototype.registerFiles
  *   !proto.api_container_api.RegisterServiceResponse>}
  */
 const methodDescriptor_ApiContainerService_RegisterService = new grpc.web.MethodDescriptor(
-  '/api_container_api.ApiContainerService/RegisterService',
-  grpc.web.MethodType.UNARY,
-  proto.api_container_api.RegisterServiceArgs,
-  proto.api_container_api.RegisterServiceResponse,
-  /**
-   * @param {!proto.api_container_api.RegisterServiceArgs} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.api_container_api.RegisterServiceResponse.deserializeBinary
+    '/api_container_api.ApiContainerService/RegisterService',
+    grpc.web.MethodType.UNARY,
+    proto.api_container_api.RegisterServiceArgs,
+    proto.api_container_api.RegisterServiceResponse,
+    /**
+     * @param {!proto.api_container_api.RegisterServiceArgs} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    proto.api_container_api.RegisterServiceResponse.deserializeBinary
 );
 
 
@@ -411,13 +411,13 @@ const methodDescriptor_ApiContainerService_RegisterService = new grpc.web.Method
  */
 proto.api_container_api.ApiContainerServiceClient.prototype.registerService =
     function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/RegisterService',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_RegisterService,
-      callback);
-};
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/RegisterService',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_RegisterService,
+          callback);
+    };
 
 
 /**
@@ -430,12 +430,12 @@ proto.api_container_api.ApiContainerServiceClient.prototype.registerService =
  */
 proto.api_container_api.ApiContainerServicePromiseClient.prototype.registerService =
     function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/RegisterService',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_RegisterService);
-};
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/RegisterService',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_RegisterService);
+    };
 
 
 /**
@@ -445,18 +445,18 @@ proto.api_container_api.ApiContainerServicePromiseClient.prototype.registerServi
  *   !proto.api_container_api.StartServiceResponse>}
  */
 const methodDescriptor_ApiContainerService_StartService = new grpc.web.MethodDescriptor(
-  '/api_container_api.ApiContainerService/StartService',
-  grpc.web.MethodType.UNARY,
-  proto.api_container_api.StartServiceArgs,
-  proto.api_container_api.StartServiceResponse,
-  /**
-   * @param {!proto.api_container_api.StartServiceArgs} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.api_container_api.StartServiceResponse.deserializeBinary
+    '/api_container_api.ApiContainerService/StartService',
+    grpc.web.MethodType.UNARY,
+    proto.api_container_api.StartServiceArgs,
+    proto.api_container_api.StartServiceResponse,
+    /**
+     * @param {!proto.api_container_api.StartServiceArgs} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    proto.api_container_api.StartServiceResponse.deserializeBinary
 );
 
 
@@ -472,13 +472,13 @@ const methodDescriptor_ApiContainerService_StartService = new grpc.web.MethodDes
  */
 proto.api_container_api.ApiContainerServiceClient.prototype.startService =
     function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/StartService',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_StartService,
-      callback);
-};
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/StartService',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_StartService,
+          callback);
+    };
 
 
 /**
@@ -491,12 +491,12 @@ proto.api_container_api.ApiContainerServiceClient.prototype.startService =
  */
 proto.api_container_api.ApiContainerServicePromiseClient.prototype.startService =
     function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/StartService',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_StartService);
-};
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/StartService',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_StartService);
+    };
 
 
 /**
@@ -506,18 +506,18 @@ proto.api_container_api.ApiContainerServicePromiseClient.prototype.startService 
  *   !proto.api_container_api.GetServiceInfoResponse>}
  */
 const methodDescriptor_ApiContainerService_GetServiceInfo = new grpc.web.MethodDescriptor(
-  '/api_container_api.ApiContainerService/GetServiceInfo',
-  grpc.web.MethodType.UNARY,
-  proto.api_container_api.GetServiceInfoArgs,
-  proto.api_container_api.GetServiceInfoResponse,
-  /**
-   * @param {!proto.api_container_api.GetServiceInfoArgs} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.api_container_api.GetServiceInfoResponse.deserializeBinary
+    '/api_container_api.ApiContainerService/GetServiceInfo',
+    grpc.web.MethodType.UNARY,
+    proto.api_container_api.GetServiceInfoArgs,
+    proto.api_container_api.GetServiceInfoResponse,
+    /**
+     * @param {!proto.api_container_api.GetServiceInfoArgs} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    proto.api_container_api.GetServiceInfoResponse.deserializeBinary
 );
 
 
@@ -533,13 +533,13 @@ const methodDescriptor_ApiContainerService_GetServiceInfo = new grpc.web.MethodD
  */
 proto.api_container_api.ApiContainerServiceClient.prototype.getServiceInfo =
     function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/GetServiceInfo',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_GetServiceInfo,
-      callback);
-};
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/GetServiceInfo',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_GetServiceInfo,
+          callback);
+    };
 
 
 /**
@@ -552,12 +552,12 @@ proto.api_container_api.ApiContainerServiceClient.prototype.getServiceInfo =
  */
 proto.api_container_api.ApiContainerServicePromiseClient.prototype.getServiceInfo =
     function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/GetServiceInfo',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_GetServiceInfo);
-};
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/GetServiceInfo',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_GetServiceInfo);
+    };
 
 
 /**
@@ -567,18 +567,18 @@ proto.api_container_api.ApiContainerServicePromiseClient.prototype.getServiceInf
  *   !proto.google.protobuf.Empty>}
  */
 const methodDescriptor_ApiContainerService_RemoveService = new grpc.web.MethodDescriptor(
-  '/api_container_api.ApiContainerService/RemoveService',
-  grpc.web.MethodType.UNARY,
-  proto.api_container_api.RemoveServiceArgs,
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.api_container_api.RemoveServiceArgs} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
+    '/api_container_api.ApiContainerService/RemoveService',
+    grpc.web.MethodType.UNARY,
+    proto.api_container_api.RemoveServiceArgs,
+    google_protobuf_empty_pb.Empty,
+    /**
+     * @param {!proto.api_container_api.RemoveServiceArgs} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    google_protobuf_empty_pb.Empty.deserializeBinary
 );
 
 
@@ -594,13 +594,13 @@ const methodDescriptor_ApiContainerService_RemoveService = new grpc.web.MethodDe
  */
 proto.api_container_api.ApiContainerServiceClient.prototype.removeService =
     function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/RemoveService',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_RemoveService,
-      callback);
-};
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/RemoveService',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_RemoveService,
+          callback);
+    };
 
 
 /**
@@ -613,12 +613,12 @@ proto.api_container_api.ApiContainerServiceClient.prototype.removeService =
  */
 proto.api_container_api.ApiContainerServicePromiseClient.prototype.removeService =
     function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/RemoveService',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_RemoveService);
-};
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/RemoveService',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_RemoveService);
+    };
 
 
 /**
@@ -628,18 +628,18 @@ proto.api_container_api.ApiContainerServicePromiseClient.prototype.removeService
  *   !proto.google.protobuf.Empty>}
  */
 const methodDescriptor_ApiContainerService_Repartition = new grpc.web.MethodDescriptor(
-  '/api_container_api.ApiContainerService/Repartition',
-  grpc.web.MethodType.UNARY,
-  proto.api_container_api.RepartitionArgs,
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.api_container_api.RepartitionArgs} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
+    '/api_container_api.ApiContainerService/Repartition',
+    grpc.web.MethodType.UNARY,
+    proto.api_container_api.RepartitionArgs,
+    google_protobuf_empty_pb.Empty,
+    /**
+     * @param {!proto.api_container_api.RepartitionArgs} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    google_protobuf_empty_pb.Empty.deserializeBinary
 );
 
 
@@ -655,13 +655,13 @@ const methodDescriptor_ApiContainerService_Repartition = new grpc.web.MethodDesc
  */
 proto.api_container_api.ApiContainerServiceClient.prototype.repartition =
     function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/Repartition',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_Repartition,
-      callback);
-};
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/Repartition',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_Repartition,
+          callback);
+    };
 
 
 /**
@@ -674,12 +674,12 @@ proto.api_container_api.ApiContainerServiceClient.prototype.repartition =
  */
 proto.api_container_api.ApiContainerServicePromiseClient.prototype.repartition =
     function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/Repartition',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_Repartition);
-};
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/Repartition',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_Repartition);
+    };
 
 
 /**
@@ -689,18 +689,18 @@ proto.api_container_api.ApiContainerServicePromiseClient.prototype.repartition =
  *   !proto.api_container_api.ExecCommandResponse>}
  */
 const methodDescriptor_ApiContainerService_ExecCommand = new grpc.web.MethodDescriptor(
-  '/api_container_api.ApiContainerService/ExecCommand',
-  grpc.web.MethodType.UNARY,
-  proto.api_container_api.ExecCommandArgs,
-  proto.api_container_api.ExecCommandResponse,
-  /**
-   * @param {!proto.api_container_api.ExecCommandArgs} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.api_container_api.ExecCommandResponse.deserializeBinary
+    '/api_container_api.ApiContainerService/ExecCommand',
+    grpc.web.MethodType.UNARY,
+    proto.api_container_api.ExecCommandArgs,
+    proto.api_container_api.ExecCommandResponse,
+    /**
+     * @param {!proto.api_container_api.ExecCommandArgs} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    proto.api_container_api.ExecCommandResponse.deserializeBinary
 );
 
 
@@ -716,13 +716,13 @@ const methodDescriptor_ApiContainerService_ExecCommand = new grpc.web.MethodDesc
  */
 proto.api_container_api.ApiContainerServiceClient.prototype.execCommand =
     function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/ExecCommand',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_ExecCommand,
-      callback);
-};
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/ExecCommand',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_ExecCommand,
+          callback);
+    };
 
 
 /**
@@ -735,12 +735,134 @@ proto.api_container_api.ApiContainerServiceClient.prototype.execCommand =
  */
 proto.api_container_api.ApiContainerServicePromiseClient.prototype.execCommand =
     function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/ExecCommand',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_ExecCommand);
-};
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/ExecCommand',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_ExecCommand);
+    };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.api_container_api.PauseServiceArgs,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_ApiContainerService_PauseService = new grpc.web.MethodDescriptor(
+    '/api_container_api.ApiContainerService/PauseService',
+    grpc.web.MethodType.UNARY,
+    proto.api_container_api.PauseServiceArgs,
+    google_protobuf_empty_pb.Empty,
+    /**
+     * @param {!proto.api_container_api.PauseServiceArgs} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    google_protobuf_empty_pb.Empty.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.api_container_api.PauseServiceArgs} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.api_container_api.ApiContainerServiceClient.prototype.pauseService =
+    function(request, metadata, callback) {
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/PauseService',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_PauseService,
+          callback);
+    };
+
+
+/**
+ * @param {!proto.api_container_api.PauseServiceArgs} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.google.protobuf.Empty>}
+ *     Promise that resolves to the response
+ */
+proto.api_container_api.ApiContainerServicePromiseClient.prototype.pauseService =
+    function(request, metadata) {
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/PauseService',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_PauseService);
+    };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.api_container_api.UnpauseServiceArgs,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_ApiContainerService_UnpauseService = new grpc.web.MethodDescriptor(
+    '/api_container_api.ApiContainerService/UnpauseService',
+    grpc.web.MethodType.UNARY,
+    proto.api_container_api.UnpauseServiceArgs,
+    google_protobuf_empty_pb.Empty,
+    /**
+     * @param {!proto.api_container_api.UnpauseServiceArgs} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    google_protobuf_empty_pb.Empty.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.api_container_api.UnpauseServiceArgs} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.api_container_api.ApiContainerServiceClient.prototype.unpauseService =
+    function(request, metadata, callback) {
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/UnpauseService',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_UnpauseService,
+          callback);
+    };
+
+
+/**
+ * @param {!proto.api_container_api.UnpauseServiceArgs} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.google.protobuf.Empty>}
+ *     Promise that resolves to the response
+ */
+proto.api_container_api.ApiContainerServicePromiseClient.prototype.unpauseService =
+    function(request, metadata) {
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/UnpauseService',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_UnpauseService);
+    };
 
 
 /**
@@ -750,18 +872,18 @@ proto.api_container_api.ApiContainerServicePromiseClient.prototype.execCommand =
  *   !proto.google.protobuf.Empty>}
  */
 const methodDescriptor_ApiContainerService_WaitForHttpGetEndpointAvailability = new grpc.web.MethodDescriptor(
-  '/api_container_api.ApiContainerService/WaitForHttpGetEndpointAvailability',
-  grpc.web.MethodType.UNARY,
-  proto.api_container_api.WaitForHttpGetEndpointAvailabilityArgs,
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.api_container_api.WaitForHttpGetEndpointAvailabilityArgs} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
+    '/api_container_api.ApiContainerService/WaitForHttpGetEndpointAvailability',
+    grpc.web.MethodType.UNARY,
+    proto.api_container_api.WaitForHttpGetEndpointAvailabilityArgs,
+    google_protobuf_empty_pb.Empty,
+    /**
+     * @param {!proto.api_container_api.WaitForHttpGetEndpointAvailabilityArgs} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    google_protobuf_empty_pb.Empty.deserializeBinary
 );
 
 
@@ -777,13 +899,13 @@ const methodDescriptor_ApiContainerService_WaitForHttpGetEndpointAvailability = 
  */
 proto.api_container_api.ApiContainerServiceClient.prototype.waitForHttpGetEndpointAvailability =
     function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/WaitForHttpGetEndpointAvailability',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_WaitForHttpGetEndpointAvailability,
-      callback);
-};
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/WaitForHttpGetEndpointAvailability',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_WaitForHttpGetEndpointAvailability,
+          callback);
+    };
 
 
 /**
@@ -796,12 +918,12 @@ proto.api_container_api.ApiContainerServiceClient.prototype.waitForHttpGetEndpoi
  */
 proto.api_container_api.ApiContainerServicePromiseClient.prototype.waitForHttpGetEndpointAvailability =
     function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/WaitForHttpGetEndpointAvailability',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_WaitForHttpGetEndpointAvailability);
-};
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/WaitForHttpGetEndpointAvailability',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_WaitForHttpGetEndpointAvailability);
+    };
 
 
 /**
@@ -811,18 +933,18 @@ proto.api_container_api.ApiContainerServicePromiseClient.prototype.waitForHttpGe
  *   !proto.google.protobuf.Empty>}
  */
 const methodDescriptor_ApiContainerService_WaitForHttpPostEndpointAvailability = new grpc.web.MethodDescriptor(
-  '/api_container_api.ApiContainerService/WaitForHttpPostEndpointAvailability',
-  grpc.web.MethodType.UNARY,
-  proto.api_container_api.WaitForHttpPostEndpointAvailabilityArgs,
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.api_container_api.WaitForHttpPostEndpointAvailabilityArgs} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
+    '/api_container_api.ApiContainerService/WaitForHttpPostEndpointAvailability',
+    grpc.web.MethodType.UNARY,
+    proto.api_container_api.WaitForHttpPostEndpointAvailabilityArgs,
+    google_protobuf_empty_pb.Empty,
+    /**
+     * @param {!proto.api_container_api.WaitForHttpPostEndpointAvailabilityArgs} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    google_protobuf_empty_pb.Empty.deserializeBinary
 );
 
 
@@ -838,13 +960,13 @@ const methodDescriptor_ApiContainerService_WaitForHttpPostEndpointAvailability =
  */
 proto.api_container_api.ApiContainerServiceClient.prototype.waitForHttpPostEndpointAvailability =
     function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/WaitForHttpPostEndpointAvailability',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_WaitForHttpPostEndpointAvailability,
-      callback);
-};
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/WaitForHttpPostEndpointAvailability',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_WaitForHttpPostEndpointAvailability,
+          callback);
+    };
 
 
 /**
@@ -857,12 +979,12 @@ proto.api_container_api.ApiContainerServiceClient.prototype.waitForHttpPostEndpo
  */
 proto.api_container_api.ApiContainerServicePromiseClient.prototype.waitForHttpPostEndpointAvailability =
     function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/WaitForHttpPostEndpointAvailability',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_WaitForHttpPostEndpointAvailability);
-};
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/WaitForHttpPostEndpointAvailability',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_WaitForHttpPostEndpointAvailability);
+    };
 
 
 /**
@@ -872,18 +994,18 @@ proto.api_container_api.ApiContainerServicePromiseClient.prototype.waitForHttpPo
  *   !proto.api_container_api.GetServicesResponse>}
  */
 const methodDescriptor_ApiContainerService_GetServices = new grpc.web.MethodDescriptor(
-  '/api_container_api.ApiContainerService/GetServices',
-  grpc.web.MethodType.UNARY,
-  google_protobuf_empty_pb.Empty,
-  proto.api_container_api.GetServicesResponse,
-  /**
-   * @param {!proto.google.protobuf.Empty} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.api_container_api.GetServicesResponse.deserializeBinary
+    '/api_container_api.ApiContainerService/GetServices',
+    grpc.web.MethodType.UNARY,
+    google_protobuf_empty_pb.Empty,
+    proto.api_container_api.GetServicesResponse,
+    /**
+     * @param {!proto.google.protobuf.Empty} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    proto.api_container_api.GetServicesResponse.deserializeBinary
 );
 
 
@@ -899,13 +1021,13 @@ const methodDescriptor_ApiContainerService_GetServices = new grpc.web.MethodDesc
  */
 proto.api_container_api.ApiContainerServiceClient.prototype.getServices =
     function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/GetServices',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_GetServices,
-      callback);
-};
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/GetServices',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_GetServices,
+          callback);
+    };
 
 
 /**
@@ -918,12 +1040,12 @@ proto.api_container_api.ApiContainerServiceClient.prototype.getServices =
  */
 proto.api_container_api.ApiContainerServicePromiseClient.prototype.getServices =
     function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/GetServices',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_GetServices);
-};
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/GetServices',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_GetServices);
+    };
 
 
 /**
@@ -933,18 +1055,18 @@ proto.api_container_api.ApiContainerServicePromiseClient.prototype.getServices =
  *   !proto.api_container_api.GetModulesResponse>}
  */
 const methodDescriptor_ApiContainerService_GetModules = new grpc.web.MethodDescriptor(
-  '/api_container_api.ApiContainerService/GetModules',
-  grpc.web.MethodType.UNARY,
-  google_protobuf_empty_pb.Empty,
-  proto.api_container_api.GetModulesResponse,
-  /**
-   * @param {!proto.google.protobuf.Empty} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.api_container_api.GetModulesResponse.deserializeBinary
+    '/api_container_api.ApiContainerService/GetModules',
+    grpc.web.MethodType.UNARY,
+    google_protobuf_empty_pb.Empty,
+    proto.api_container_api.GetModulesResponse,
+    /**
+     * @param {!proto.google.protobuf.Empty} request
+     * @return {!Uint8Array}
+     */
+    function(request) {
+      return request.serializeBinary();
+    },
+    proto.api_container_api.GetModulesResponse.deserializeBinary
 );
 
 
@@ -960,13 +1082,13 @@ const methodDescriptor_ApiContainerService_GetModules = new grpc.web.MethodDescr
  */
 proto.api_container_api.ApiContainerServiceClient.prototype.getModules =
     function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/GetModules',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_GetModules,
-      callback);
-};
+      return this.client_.rpcCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/GetModules',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_GetModules,
+          callback);
+    };
 
 
 /**
@@ -979,13 +1101,12 @@ proto.api_container_api.ApiContainerServiceClient.prototype.getModules =
  */
 proto.api_container_api.ApiContainerServicePromiseClient.prototype.getModules =
     function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/api_container_api.ApiContainerService/GetModules',
-      request,
-      metadata || {},
-      methodDescriptor_ApiContainerService_GetModules);
-};
+      return this.client_.unaryCall(this.hostname_ +
+          '/api_container_api.ApiContainerService/GetModules',
+          request,
+          metadata || {},
+          methodDescriptor_ApiContainerService_GetModules);
+    };
 
 
 module.exports = proto.api_container_api;
-
