@@ -2,7 +2,7 @@
 
 'use strict';
 var grpc = require('@grpc/grpc-js');
-var executable_module_service_pb = require('./executable_module_service_pb.js');
+var executable_module_service_pb = require('./executable_module_service_pb.d.ts');
 var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
 
 function serialize_google_protobuf_Empty(arg) {
